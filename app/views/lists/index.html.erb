@@ -1,21 +1,50 @@
-<h1>Lists#List.all</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<!--11章①index.html.erbの編集
+まず①index.html.erbを編集します。
+現在のコードから以下のコードに書き換えてください。-->
+<div class="list-wrap">
+ <% @lists.each do |list| %>
+ <div class="list-box">
+   <% if list.image.attached?%>
+      <%= image_tag list.image, size: "200×200"%>
+   <% else %>
+      <%= image_tag 'no_image', size: "200×200"%>
+   <% end %>
+   <div class="list-comment">
+    <span class="list-body"><%= list.body%></span>
+    <span class="list-title"><%= link_to list.title, list_path(list.id)%></span>
+   </div>
+ </div>
+ <% end %>
+</div>
 
-<h1>投稿一覧</h1>
+<!--書き換えたコードの中にある
+<%= list.body %>はListモデルの
+bodyカラムに入っているデータを
+呼び出している記述です。-->
 
-<%@lists.each do |list|%>
 
-<p>タイトル</p>
+
+<!--<h1>Lists#List.all</h1>-->
+<!--<p>Find me in app/views/lists/index.html.erb</p>-->
+
+<!--　11章　↓↓　現在のコードここから-->
+<!--<h1>投稿一覧</h1>-->
+
+<!--<%@lists.each do |list|%>-->
+
+<!--<p>タイトル</p>-->
 <!--<span><%= list.title%></span>を削除して、以下のコードに変更-->
-<span>
-    <%= link_to list.title,list_path(list.id)%>
-</span>
+<!--<span>-->
+    <!--<%= link_to list.title,list_path(list.id)%>-->
+<!--</span>-->
 
-<p>画像</p>
-<% if list.image.attached? %>
- <%= image_tag list.image,size:"200×200"%>
+<!--<p>画像</p>-->
+<!--<% if list.image.attached? %>-->
+ <!--<%= image_tag list.image,size:"200×200"%>-->
 <% else %>
- <%= image_tag 'no_image', size:"200×200"%>
-<%end%>
+ <!--<%= image_tag 'no_image', size:"200×200"%>-->
+<!--<%end%>-->
 
-<%end%>
+<!--<%end%>-->
+
+<!--ここまで消してください-->
